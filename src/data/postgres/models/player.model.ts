@@ -1,7 +1,9 @@
 
 
-import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { User } from './user.model';
+import { Construction } from './constructions.model';
+import { Quest_player } from './questPlayer.model';
 
 @Entity()
 export class Player extends BaseEntity {
@@ -41,6 +43,12 @@ export class Player extends BaseEntity {
     default: 100,
   })
   energy: number;
+
+  @OneToMany(() => Construction, (construction) => construction.player)
+  constructions: Construction[];
+
+  @OneToMany(() => Quest_player, (quest_player) => quest_player.player)
+  quest_players: Quest_player[];
 
   @CreateDateColumn()
   created_at: Date;
