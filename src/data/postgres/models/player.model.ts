@@ -4,6 +4,8 @@ import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, Pri
 import { User } from './user.model';
 import { Construction } from './constructions.model';
 import { Quest_player } from './questPlayer.model';
+import { Clan } from './clans.model';
+import { ClanMember } from './clanMember.model';
 
 @Entity()
 export class Player extends BaseEntity {
@@ -49,6 +51,9 @@ export class Player extends BaseEntity {
 
   @OneToMany(() => Quest_player, (quest_player) => quest_player.player)
   quest_players: Quest_player[];
+
+  @OneToMany(() => ClanMember, (clanMember) => clanMember.player)
+  clanMembers: ClanMember[];
 
   @CreateDateColumn()
   created_at: Date;
