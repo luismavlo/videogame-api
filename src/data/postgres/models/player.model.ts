@@ -1,11 +1,12 @@
 
 
-import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { User } from './user.model';
 import { Construction } from './constructions.model';
 import { Quest_player } from './questPlayer.model';
 import { Clan } from './clans.model';
 import { ClanMember } from './clanMember.model';
+import { Inventory } from './inventory.model';
 
 @Entity()
 export class Player extends BaseEntity {
@@ -54,6 +55,9 @@ export class Player extends BaseEntity {
 
   @OneToMany(() => ClanMember, (clanMember) => clanMember.player)
   clanMembers: ClanMember[];
+
+  @OneToOne(() => Inventory, (inventory) => inventory.player)
+  inventory: Inventory;
 
   @CreateDateColumn()
   created_at: Date;
