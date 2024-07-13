@@ -2,6 +2,7 @@ import "reflect-metadata"
 import { envs } from './config/envs';
 import { Server } from './presentation/server';
 import { PostgresDatabase } from './data';
+import { AppRoutes } from './presentation/routes';
 
 
 async function main() {
@@ -19,6 +20,7 @@ async function main() {
 
   const server = new Server({
     port: envs.PORT,
+    routes: AppRoutes.routes,
   })
 
   await server.start();
