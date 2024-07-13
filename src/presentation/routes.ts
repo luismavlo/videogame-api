@@ -3,6 +3,7 @@
 
 import { Router } from 'express';
 import { PlayerRoutes } from './player/route';
+import { UserRoutes } from './user/routes';
 
 
 export class AppRoutes {
@@ -11,6 +12,7 @@ export class AppRoutes {
     const router = Router();
 
     router.use('/api/v1/player', PlayerRoutes.routes);
+    router.use('/api/v1/user', UserRoutes.routes);
 
     return router;
   }

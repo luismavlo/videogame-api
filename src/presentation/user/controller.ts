@@ -25,8 +25,6 @@ export class UserController {
     this.userService.findeOneUser(+id)
       .then(user => res.status(200).json(user))
       .catch(error => this.handleError(error, res))
-
-    return res.status(200).json({ message: 'Hello World!' })
   }
 
 }
