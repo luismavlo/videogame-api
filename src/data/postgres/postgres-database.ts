@@ -1,4 +1,14 @@
 import { DataSource } from 'typeorm';
+import { User } from './models/user.model';
+import { Player } from './models/player.model';
+import { ClanMember } from './models/clanMember.model';
+import { Clan } from './models/clans.model';
+import { Construction } from './models/constructions.model';
+import { Inventory } from './models/inventory.model';
+import { Item } from './models/item.model';
+import { Quest_player } from './models/questPlayer.model';
+import { Quest } from './models/quest.model';
+import { Resource } from './models/resource.model';
 
 
 interface Options {
@@ -21,7 +31,7 @@ export class PostgresDatabase {
       username: options.username,
       password: options.password,
       database: options.database,
-      //entities: [],
+      entities: [User, Player, ClanMember, Clan, Construction, Inventory, Item, Quest_player, Quest, Resource],
       synchronize: true,
     })
   }
