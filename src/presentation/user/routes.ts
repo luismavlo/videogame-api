@@ -14,6 +14,9 @@ export class UserRoutes {
 
     router.get('/:id', userController.findOneUser)
 
+    router.post('/login', userController.login)
+    router.post('/register', userController.register)
+
     return router;
   }
 
