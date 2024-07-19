@@ -3,6 +3,7 @@
 
 import { BaseEntity, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { Inventory } from './inventory.model';
+import { Inventory_item } from './inventoryItem.model';
 
 @Entity()
 export class Item extends BaseEntity {
@@ -20,8 +21,8 @@ export class Item extends BaseEntity {
   })
   description: string;
 
-  @OneToMany(() => Inventory, (inventory) => inventory.item)
-  inventory: Inventory[];
+  @OneToMany(() => Inventory_item, (inventory_item) => inventory_item.item)
+  inventory_item: Inventory_item[];
   
   @CreateDateColumn()
   created_at: Date;

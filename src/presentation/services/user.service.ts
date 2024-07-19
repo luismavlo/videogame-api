@@ -23,7 +23,6 @@ export class UserService {
 
     const { email, password, username } = loginUserDTO;
     
-    
     const user = await User.findOne({
       where: [
         { email },
@@ -78,5 +77,7 @@ export class UserService {
       throw CustomError.internalServer("Something went wrong")
     }
   }
+
+  
 
 }
